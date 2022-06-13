@@ -173,34 +173,3 @@ int main(int argc, char** argv)
 
 	return 0;
 }
-
-/*
-// Move to husky
-ROS_INFO("Waitting for Husky position message");
-
-boost::shared_ptr<apriltag_ros::AprilTagDetectionArray const> sharedEdge;
-sharedEdge = ros::topic::waitForMessage<apriltag_ros::AprilTagDetectionArray>("/tag_detections", nh);
-
-apriltag_ros::AprilTagDetectionArray Husky_pose;
-
-if(sharedEdge != NULL)
-{
-	ROS_INFO("Getting Husky position message");
-	Husky_pose = *sharedEdge;
-}
-
-float x,y,z;
-x = Husky_pose.detections[0].pose.pose.pose.position.x;
-y = Husky_pose.detections[0].pose.pose.pose.position.y;
-z = Husky_pose.detections[0].pose.pose.pose.position.z;
-
-Real_x = -(y + 0.36) + 15.5;
-Real_y = -(x + 2) + 10;
-Real_z = z - 5;
-
-desired_position << Real_x, Real_y, Real_z;
-
-mav_msgs::msgMultiDofJointTrajectoryFromPositionYaw(desired_position, desired_yaw, &trajectory_msg);
-
-trajectory_pub.publish(trajectory_msg);
-*/
